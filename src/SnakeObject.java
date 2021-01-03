@@ -6,7 +6,6 @@ public class SnakeObject {
     private String col;
     private String length;
     private String points;
-    private String currentHead;
     private StringBuilder board;
 
     public String getRow() {
@@ -41,14 +40,6 @@ public class SnakeObject {
         this.points = points;
     }
 
-    public String getCurrentHead() {
-        return currentHead;
-    }
-
-    public void setCurrentHead(String currentHead) {
-        this.currentHead = currentHead;
-    }
-
     public String getBoard() {
         return this.board.toString();
     }
@@ -58,6 +49,12 @@ public class SnakeObject {
         this.setCol(col);
         this.setLength(length);
         this.setPoints(points);
+    }
+
+    public void initSnake(SnakeObject obj) {
+        int length = Integer.parseInt(obj.getLength());
+        PositionEnum.HEAD.setRowPosition("0");
+        PositionEnum.HEAD.setColPosition("");
     }
 
     public void drawWall(SnakeObject obj) {
